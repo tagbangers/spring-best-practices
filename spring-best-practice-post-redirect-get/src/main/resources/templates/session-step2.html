@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Post-Redirect-Get</title>
+	</head>
+	<body>
+		<h1>Post-Redirect-Get</h1>
+		<h2>Step2</h2>
+		<p th:if="${message}" th:text="${message}">Message</p>
+		<form th:action="@{/session(step2)}" th:object="${form}" action="#" method="post">
+			<div th:if="${#fields.hasErrors('password')}" class="alert alert-error">
+				<p th:each="error : ${#fields.errors('password')}" th:text="${error}">Validation error</p>
+			</div>
+			<label>Password</label>
+			<input type="text" th:field="*{password}" th:class="${#fields.hasErrors('password')} ? 'field-error'" />
+			<input type="submit" />
+		</form>
+	</body>
+</html>
