@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Spring Best Practices Hibernate Search Multi Tenancy</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="page-header">Hibernate Search Multi Tenancy</h1>
+			<ul>
+				<li><a th:href="@{/tenant1}">Tenant 1</a></li>
+				<li><a th:href="@{/tenant2}">Tenant 2</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Spring Best Practices Hibernate Search Multi Tenancy</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<form method="post" th:action="@{/{tenant}/re-index(tenant=${tenant})}">
+					<button class="btn btn-default" style="float: right; margin-top: 5px;">Re-Index</button>
+				</form>
+				<h1 class="page-header" th:text="${tenant}">Tenant</h1>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item" th:each="item : ${items}" th:text="${item}"></li>
+			</ul>
+		</div>
+	</body>
+</html>
