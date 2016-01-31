@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+		<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}" />
+		<script th:src="@{/webjars/jquery/2.2.0/jquery.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="page-header">
+						<h1>Hello</h1>
+					</div>
+					<p>User Information</p>
+					<table class="table">
+						<tr>
+							<th>Tenant ID</th>
+							<td th:text="${user.tenantId}"></td>
+						</tr>
+						<tr>
+							<th>User Name</th>
+							<td th:text="${user.username}"></td>
+						</tr>
+						<tr>
+							<th>Name</th>
+							<td th:text="${user.name}"></td>
+						</tr>
+						<tr>
+							<th>Email</th>
+							<td th:text="${user.email}"></td>
+						</tr>
+					</table>
+					<p>Menu</p>
+					<ul class="list-group">
+						<li class="list-group-item"><a th:href="@{/h2-console}">H2 Console</a></li>
+						<li class="list-group-item"><a th:href="@{/logout}">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

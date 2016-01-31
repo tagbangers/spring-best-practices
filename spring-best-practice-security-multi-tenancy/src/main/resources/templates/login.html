@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+		<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}" />
+		<script th:src="@{/webjars/jquery/2.2.0/jquery.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="page-header">
+						<h1>Login</h1>
+					</div>
+					<form method="post" th:action="@{/login}">
+						<div class="form-group">
+							<label>Tenant ID</label>
+							<input type="text" name="tenantId" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>User Name</label>
+							<input type="text" name="username" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" name="password" class="form-control" />
+						</div>
+						<div class="checkbox">
+							<label><input type="checkbox" name="remember-me" /> Remember-me</label>
+						</div>
+						<button type="submit">Login</button>
+					</form>
+					<hr />
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Tenant ID</th>
+								<th>User Name</th>
+								<th>Password</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>meikun</td>
+								<td>yamada</td>
+								<td>yamada</td>
+							</tr>
+							<tr>
+								<td>meikun</td>
+								<td>iwaki</td>
+								<td>iwaki</td>
+							</tr>
+							<tr>
+								<td>benkei</td>
+								<td>musashibo</td>
+								<td>musashibo</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
