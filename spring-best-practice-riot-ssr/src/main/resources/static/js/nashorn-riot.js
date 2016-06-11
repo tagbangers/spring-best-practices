@@ -1,7 +1,7 @@
 // simple-dom helper
 
-var simpleDom = require('static/simple-dom')
-var simpleTokenizer = require('static/simple-html-tokenizer')
+var simpleDom = require('static/js/simple-dom')
+var simpleTokenizer = require('static/js/simple-html-tokenizer')
 
 // create `document` to make riot work
 if (typeof window == 'undefined') {
@@ -12,6 +12,9 @@ if (typeof window == 'undefined') {
 
 // easy like a pie! closes #1780
 document.createElementNS = document.createElement
+
+document.querySelector = function () { return false }
+document.getElementsByTagName = function(tagName) { return [new simpleDom.Element(tagName)] }
 
 // add `innerHTML` property to simple-dom element
 Object.defineProperty(simpleDom.Element.prototype, 'innerHTML', {
@@ -79,3 +82,16 @@ var sdom = module.exports = {
     return serializer.serialize(doc)
   }
 }
+
+var window = this;
+
+var history = {};
+history.location = {}
+history.location.href = null;
+
+var console = {};
+console.debug = print;
+console.warn = print;
+console.log = print;
+
+var setTimeout = function () {}

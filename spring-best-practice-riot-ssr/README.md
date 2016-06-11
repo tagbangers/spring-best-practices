@@ -1,5 +1,1 @@
-
-
-
-
-http://www.slideshare.net/MaximeNajim/java-one-isomorphicnashornhq
+# Server-side rendering by Spring Boot and Riot.js

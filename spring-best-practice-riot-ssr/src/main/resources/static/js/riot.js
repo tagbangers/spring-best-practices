@@ -1331,12 +1331,12 @@ var styleManager = (function(_riot) {
     setAttr(newNode, 'type', 'text/css')
 
     // replace any user node or insert the new one into the head
-    // var userNode = $('style[type=riot]')
-    // if (userNode) {
-    //   if (userNode.id) newNode.id = userNode.id
-    //   userNode.parentNode.replaceChild(newNode, userNode)
-    // }
-    // else document.getElementsByTagName('head')[0].appendChild(newNode)
+    var userNode = $('style[type=riot]')
+    if (userNode) {
+      if (userNode.id) newNode.id = userNode.id
+      userNode.parentNode.replaceChild(newNode, userNode)
+    }
+    else document.getElementsByTagName('head')[0].appendChild(newNode)
 
     return newNode
   })()

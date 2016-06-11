@@ -1,8 +1,5 @@
-
 <todo>
-
 	<h3>{ opts.title }</h3>
-
 	<ul>
 		<li each={ items.filter(whatShow) }>
 			<label class={ completed: done }>
@@ -10,32 +7,31 @@
 			</label>
 		</li>
 	</ul>
-
 	<form onsubmit={ add }>
 		<input name="input" onkeyup={ edit }>
 		<button disabled={ !text }>Add #{ items.filter(whatShow).length + 1 }</button>
-
-		<button disabled={ items.filter(onlyDone).length == 0 } onclick={ removeAllDone }>
-			X{ items.filter(onlyDone).length } </button>
+		<button disabled={ items.filter(onlyDone).length == 0 } onclick={ removeAllDone }>X{ items.filter(onlyDone).length } </button>
 	</form>
-
-	<!-- this script tag is optional -->
 	<script>
-		this.items = opts.items
+		var todo = this;
+		todo.items = opts.items
 
 		edit(e) {
-			this.text = e.target.value
+			todo.text = e.target.value
 		}
 
 		add(e) {
-			if (this.text) {
-				this.items.push({ title: this.text })
-				this.text = this.input.value = ''
+			if (todo.text) {
+				fetch('/todo', {method: 'post'}).then(function(response) {
+					console.dir(response);
+					todo.items.push({ title: todo.text })
+					todo.text = todo.input.value = ''
+				})
 			}
 		}
 
 		removeAllDone(e) {
-			this.items = this.items.filter(function(item) {
+			todo.items = todo.items.filter(function(item) {
 				return !item.done
 			})
 		}
@@ -55,5 +51,4 @@
 			return true
 		}
 	</script>
-
 </todo>
