@@ -2,7 +2,10 @@
 
 ## How to Run
 
-
+```
+cd spring-best-practice-riot-ssr/src/main/resources/static
+mvn spring-boot:run
+```
 
 ## Compile Riot Tag
 
