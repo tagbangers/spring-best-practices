@@ -50,10 +50,11 @@ public class IndexController {
 		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/riot-render.js").getInputStream()));
 		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/todo.js").getInputStream()));
 
+		String title = "I want to behave!";
 		List<Todo> todos = todoRepository.findAll();
-		String todoTag = (String) nashorn.eval(String.format("riot.render('todo', {title: 'あああ', items: %s})", objectMapper.writeValueAsString(todos)));
+		String todoTag = (String) nashorn.eval(String.format("riot.render('todo', {title: '%s', items: %s})", title, objectMapper.writeValueAsString(todos)));
 
-		model.addAttribute("title", "I want to behave!");
+		model.addAttribute("title", title);
 		model.addAttribute("todos", todos);
 		model.addAttribute("todoTag", todoTag);
 		return "index";
