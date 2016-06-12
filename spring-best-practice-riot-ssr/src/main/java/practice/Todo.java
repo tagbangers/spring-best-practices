@@ -1,7 +1,6 @@
 package practice;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,8 +10,9 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "todo")
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Todo implements Serializable{
 
 	@Id

@@ -20,35 +20,23 @@ import java.util.List;
 @Controller
 public class IndexController {
 
+	@Autowired
 	private ResourceLoader resourceLoader;
 
+	@Autowired
 	private TodoRepository todoRepository;
 
+	@Autowired
 	private ObjectMapper objectMapper;
-
-	@Autowired
-	public void setResourceLoader(ResourceLoader resourceLoader) {
-		this.resourceLoader = resourceLoader;
-	}
-
-	@Autowired
-	public void setTodoRepository(TodoRepository todoRepository) {
-		this.todoRepository = todoRepository;
-	}
-
-	@Autowired
-	public void setObjectMapper(ObjectMapper objectMapper) {
-		this.objectMapper = objectMapper;
-	}
 
 	@RequestMapping("/")
 	public String index(Model model) throws ScriptException, IOException {
 		NashornScriptEngine nashorn = (NashornScriptEngine) new ScriptEngineManager().getEngineByName("nashorn");
-		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/jvm-npm.js").getInputStream()));
-		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/nashorn-riot.js").getInputStream()));
-		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/riot.js").getInputStream()));
-		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/riot-render.js").getInputStream()));
-		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/todo.js").getInputStream()));
+		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/jvm-npm.js").getInputStream(), "UTF-8"));
+		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/nashorn-riot.js").getInputStream(), "UTF-8"));
+		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/riot.js").getInputStream(), "UTF-8"));
+		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/riot-render.js").getInputStream(), "UTF-8"));
+		nashorn.eval(new InputStreamReader(resourceLoader.getResource("classpath:static/js/todo.js").getInputStream(), "UTF-8"));
 
 		String title = "I want to behave!";
 		List<Todo> todos = todoRepository.findAll();
