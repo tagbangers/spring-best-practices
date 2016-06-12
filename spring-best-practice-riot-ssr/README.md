@@ -3,7 +3,7 @@
 ## How to Run
 
 ```
-cd spring-best-practice-riot-ssr/src/main/resources/static
+cd spring-best-practice-riot-ssr
 mvn spring-boot:run
 ```
 
